@@ -9,4 +9,6 @@ Idle your hours on steam with some clever javascript
 5. ????
 6. Profit
 
+P.S.: Config file was populated with some ID's so you can start idling ASAP
+
 For any bugs [contact me](http://steamcommunity.com/profiles/76561198129634369) on steam
