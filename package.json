@@ -1,0 +1,32 @@
+{
+  "name": "node-steamidle",
+  "version": "1.0.0",
+  "description": "Idle your hours with node.js",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SloRunner/node-steamidle.git"
+  },
+  "keywords": [
+    "steam",
+    "idle",
+    "hourbooster",
+    "steam",
+    "idler",
+    "idle"
+  ],
+  "author": "Aleš Kalan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SloRunner/node-steamidle/issues"
+  },
+  "homepage": "https://github.com/SloRunner/node-steamidle#readme",
+  "dependencies": {
+    "steam-totp": "^2.0.1",
+    "steam-user": "^3.21.7"
+  },
+  "devDependencies": {}
+}
