@@ -3,6 +3,11 @@ var SteamUser = require("steam-user");
 var SteamTotp = require('steam-totp');
 var config = require('./config.json');
 
+if (config.username = '' || config.password == '') {
+	log('Edit config.json! Add you username and password and start the bot');
+	process.exit(1);
+};
+
 function uniq(a) {
     return a.sort().filter(function(item, pos, ary) {
         return !pos || item != ary[pos - 1];
@@ -49,16 +54,20 @@ client.on("loggedOn", function (details) {
 	client.requestFreeLicense(playme);
 	log("Idling: " + playme.length + " games, getting " + (playme.length * 24) + " hours per day | " + (playme.length * 336) + " hours per 2 weeks");
 	client.gamesPlayed(playme);
-  	client.setPersona(1);
+	if (config.silent == false) {
+		client.setPersona(1);
+	};
 });
 
 client.on('error', function(e) {
-	log('Client error', e);
+	log('Client error' + e);
 	shutdown(1);
 });
 
-client.once('sentry', () => {
-	log('Recieved sentry file...');
+client.on('friendMessage', function (steamid, message){
+	if (config.sendautomessage == true) {
+		client.chatMessage(steamid, config.automessage);
+	};
 })
 
 process.on('SIGINT', function() {
