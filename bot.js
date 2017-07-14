@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 var SteamUser = require("steam-user");
 var SteamTotp = require('steam-totp');
-var config = require('./config.json');
+var config = require('./config');
 
 if (config.username = '' || config.password == '') {
-	log('Edit config.json! Add you username and password and start the bot');
+	log('Edit config.js! Add you username and password and start the bot');
 	process.exit(1);
 };
 
@@ -22,6 +22,7 @@ log('Removing duplicate ids from game array...');
 log('Removed ' + parseInt(templay - playme.length) + ' games');
 if (playme.length > 31) {
 	log('You are only able to idle 31 games at once due to steam... Delete some ID numbers in config to start idling');
+	process.exit(1);
 };
 var client = new SteamUser();
 
