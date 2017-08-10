@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/SloRunner/node-steamidle#readme",
   "dependencies": {
+    "fs": "0.0.1-security",
     "steam-totp": "^2.0.1",
     "steam-user": "^3.21.7"
   },

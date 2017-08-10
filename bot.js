@@ -1,10 +1,19 @@
 #!/usr/bin/env node
-var SteamUser = require("steam-user");
-var SteamTotp = require('steam-totp');
-var config = require('./config');
+const SteamUser = require("steam-user");
+const SteamTotp = require('steam-totp');
+const fs = require('fs');
+
+
+
+if (fs.existsSync('./config.json')) {
+    var config = require('./config.json');
+}else{
+	console.log('Config file not present, please create one or copy it from config.example.json file');
+	process.exit(0);
+}
 
 if (config.username = '' || config.password == '') {
-	log('Edit config.js! Add you username and password and start the bot');
+	log('Edit config.json! Add you username and password and start the bot');
 	process.exit(1);
 };
 
