@@ -27,8 +27,8 @@ playme = uniq(playme)
 log('Initaliing bot...')
 log('Removing duplicate ids from game array...')
 log('Removed ' + parseInt(templay - playme.length) + ' games')
-if (playme.length > 31) {
-  log('You are only able to idle 31 games at once due to steam... Delete some ID numbers in config to start idling')
+if (playme.length > 33) {
+  log('You are only able to idle 33 games at once due to steam limitation... Delete some ID numbers in config to start idling')
   process.exit(1)
 };
 
