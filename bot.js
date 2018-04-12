@@ -21,6 +21,8 @@ function uniq (a) {
   })
 }
 
+var responded = [];
+
 var playme = config.gamestoplay
 var templay = parseInt(playme.length)
 playme = uniq(playme)
@@ -82,7 +84,8 @@ client.on('error', function (e) {
 })
 
 client.on('friendMessage', function (steamid, message) {
-  if (config.sendautomessage === true) {
+  if (config.sendautomessage === true && responded.indexOf(steamid.getSteamID64()) == -1) {
+    responded.push(steamid.getSteamID64())
     client.chatMessage(steamid, config.automessage)
   };
 })
