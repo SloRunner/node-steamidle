@@ -5,20 +5,18 @@ const fs = require('fs')
 
 if (fs.existsSync('./config.json')) {
   var config = require('./config.json')
+  if (!compareKeys(config, require('./config.example.json'))) {
+    log('Config file has been changed, please check config.example.json')
+    process.exit(1)
+  };
 } else {
-  console.log('Config file not present, please create one or copy it from config.example.json file')
+  log('Config file not present, please create one or copy it from config.example.json file')
   process.exit(0)
 }
 
 if (config.username === '' || config.password === '') {
   log('Edit config.json! Add you username and password and start the bot')
   process.exit(1)
-}
-
-function uniq (a) {
-  return a.sort().filter(function (item, pos, ary) {
-    return !pos || item !== ary[pos - 1]
-  })
 }
 
 var responded = [];
@@ -29,14 +27,24 @@ playme = uniq(playme)
 log('Initaliing bot...')
 log('Removing duplicate ids from game array...')
 log('Removed ' + parseInt(templay - playme.length) + ' games')
-if (playme.length > 33) {
+if (playme.length > 33 && config.bypasslimit === false) {
   log('You are only able to idle 33 games at once due to steam limitation... Delete some ID numbers in config to start idling')
   process.exit(1)
+};
+
+if (config.bypasslimit === true) {
+  log('WARNING: Bypassing the game limit may affect you steam account')
 };
 
 var client = new SteamUser()
 
 // functions
+
+function uniq (a) {
+  return a.sort().filter(function (item, pos, ary) {
+    return !pos || item !== ary[pos - 1]
+  })
+}
 
 function log (message) {
   var date = new Date()
@@ -47,6 +55,12 @@ function log (message) {
     }
   }
   console.log(time[0] + '-' + time[1] + '-' + time[2] + ' ' + time[3] + ':' + time[4] + ':' + time[5] + ' - ' + message)
+}
+
+function compareKeys(a, b) {
+  var aKeys = Object.keys(a).sort();
+  var bKeys = Object.keys(b).sort();
+  return JSON.stringify(aKeys) === JSON.stringify(bKeys);
 }
 
 // endfunc
