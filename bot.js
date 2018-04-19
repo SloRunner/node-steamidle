@@ -23,7 +23,10 @@ var responded = [];
 
 var playme = config.gamestoplay
 var templay = parseInt(playme.length)
-playme = uniq(playme)
+if (config.donotsort === false) {
+  playme = uniq(playme)
+};
+
 log('Initaliing bot...')
 log('Removing duplicate ids from game array...')
 log('Removed ' + parseInt(templay - playme.length) + ' games')
