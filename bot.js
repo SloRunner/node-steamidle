@@ -107,6 +107,13 @@ client.on('friendMessage', function (steamid, message) {
   };
 })
 
+client.on('lobbyInvite', function(inviterID, lobbyID){
+  if (config.sendautomessage === true && responded.indexOf(steamid.getSteamID64()) == -1) {
+    responded.push(inviterID.getSteamID64())
+    client.chatMessage(steamid, config.automessage)
+  };
+})
+
 process.on('SIGINT', function () {
   log('Logging off and shutting down')
   shutdown(0)
