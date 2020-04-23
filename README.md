@@ -1,6 +1,7 @@
 # node-steamidle
 Idle your hours on steam with some clever javascript
 
+[![Build Status](https://scrutinizer-ci.com/g/SloRunner/node-steamidle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/SloRunner/node-steamidle/build-status/master)
 [![GitHub issues](https://img.shields.io/github/issues/SloRunner/node-steamidle.svg?style=plastic)](https://github.com/SloRunner/node-steamidle/issues)
 [![GitHub forks](https://img.shields.io/github/forks/SloRunner/node-steamidle.svg?style=plastic)](https://github.com/SloRunner/node-steamidle/network)
 [![GitHub stars](https://img.shields.io/github/stars/SloRunner/node-steamidle.svg?style=plastic)](https://github.com/SloRunner/node-steamidle/stargazers)
