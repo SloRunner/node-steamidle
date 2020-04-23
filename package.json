@@ -1,6 +1,6 @@
 {
   "name": "node-steamidle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Idle your hours with node.js",
   "main": "bot.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/SloRunner/node-steamidle#readme",
   "dependencies": {
     "fs": "0.0.1-security",
+    "steam": "^1.4.1",
     "steam-totp": "^2.0.1",
     "steam-user": "^4.14.0"
   },
