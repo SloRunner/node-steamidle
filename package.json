@@ -27,7 +27,7 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "steam-totp": "^2.0.1",
-    "steam-user": "^3.21.7"
+    "steam-user": "^4.14.0"
   },
   "devDependencies": {}
 }
