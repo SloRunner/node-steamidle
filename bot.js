@@ -121,7 +121,7 @@ client.on('friendMessage', function (steamid, message) {
 client.on('lobbyInvite', function (inviterID, lobbyID) {
   if (config.sendautomessage === true && responded.indexOf(inviterID.getSteamID64()) === -1) {
     responded.push(inviterID.getSteamID64())
-    client.chatMessage(steamid, config.automessage)
+    client.chatMessage(inviterID, config.automessage)
   };
 })
 
