@@ -109,6 +109,7 @@ client.on('error', function (e) {
 
 client.on('friendMessage', function (steamid, message) {
   if (config.sendautomessage === true && responded.indexOf(steamid.getSteamID64()) === -1) {
+    if(message == 'Invited you to play a game!') return; //fixses the lobby invite double message condition
     client.getPersonas([steamid], function (err, steamids) {
       if (err) log('Error: ' + err)
       log('Message from ' + steamids[steamid].player_name + ' ID:[' + steamid.getSteamID64() + ']: ' + message)
